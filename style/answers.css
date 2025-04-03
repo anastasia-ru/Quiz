@@ -1,0 +1,49 @@
+.answers {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.bread-crumbs {
+    font-size: 20px;
+    color: #dcdcf3;
+}
+.bread-crumbs div {
+    display: inline-block;
+}
+.bread-crumbs div:first-child img {
+    display: inline-block;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.bread-crumbs div:last-child {
+    color: #6933dc;
+}
+.big-title {
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+}
+.test-question-options {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    min-height: auto;
+}
+.back-to-result {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+/*custom radio button*/
+input[type="radio"].correct {
+    border: 7px solid  #5fdc33;
+}
+input[type="radio"].incorrect {
+    border: 7px solid  #dc3333;
+}
+label.correct {
+    color: #5fdc33;
+}
+label.incorrect {
+    color: #dc3333;
+}
