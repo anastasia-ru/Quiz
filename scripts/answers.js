@@ -3,16 +3,18 @@
 
         quiz: null,
         correctAnswers: null,
-        listOfAnswers: null,
+        listOfAnswers: [],
         questionsListElement: null,
         currentIndex: 1,
 
 
         init() {
             const url = new URL(location.href);
-            this.listOfAnswers = url.searchParams.get("answers").split(',');
-            console.log(this.listOfAnswers);
-            const testId = url.searchParams.get("id");
+            const listOfAnswersParam = url.searchParams.get("answers");
+            this.listOfAnswers = listOfAnswersParam ? listOfAnswersParam.split(',') : [];
+            const testId = Number(url.searchParams.get("id"));
+            const score = Number(url.searchParams.get("score"));
+            const total = Number(url.searchParams.get("total"));
 
             if (testId) {
                 const xhr = new XMLHttpRequest();
@@ -43,11 +45,14 @@
                 } else {
                     location.href = 'index.html';
                 }
-
-                console.log(this.correctAnswers);
                 this.showQuiz();
+
+                const testResults = document.getElementById('right-answers');
+                testResults.onclick = function () {
+                    location.href = location.href = 'result.html?score=' + score + '&total=' + total +
+                        '&id=' + testId + '&answers=' + listOfAnswersParam;
+                }
             }
-            console.log(this.quiz);
 
 
 
